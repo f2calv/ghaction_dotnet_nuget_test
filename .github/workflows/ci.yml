@@ -25,8 +25,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  wftest:
-    uses: f2calv/ghaction_workflows/.github/workflows/dotnet-nuget-publish-v1.yml@main
+  ci:
+    uses: f2calv/gha-workflows/.github/workflows/dotnet-nuget-publish-v1.yml@main
     with:
       BuildConfiguration: Release
       PublishPreview: false
