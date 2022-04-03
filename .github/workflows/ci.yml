@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       SemVer: ${{ steps.gitversion.outputs.SemVer }}
+      FullSemVer: ${{ steps.gitversion.outputs.FullSemVer }}
       BuildConfiguration: ${{ steps.setvars.outputs.BuildConfiguration }}
 
     steps:
