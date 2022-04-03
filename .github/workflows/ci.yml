@@ -162,6 +162,7 @@ jobs:
 
   SonarQube:
     runs-on: windows-latest
+    needs: build
     steps:
       # Steps below from https://docs.sonarqube.org/latest/analysis/github-integration/ + modifications!
 
