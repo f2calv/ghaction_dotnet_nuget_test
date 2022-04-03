@@ -6,6 +6,7 @@ public class MyTests
     [Fact]
     public void Test()
     {
-        Assert.Equal(1, 1);
+        var obj = new MyClass();
+        Assert.Equal(1, obj.ProduceValue());
     }
 }
