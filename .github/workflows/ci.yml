@@ -25,7 +25,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  compliance:
+  wftest:
     uses: f2calv/ghaction_workflows/.github/workflows/dotnet-nuget-publish-v1.yml@main
     with:
       BuildConfiguration: ${{ github.event.inputs.BuildConfiguration }}
