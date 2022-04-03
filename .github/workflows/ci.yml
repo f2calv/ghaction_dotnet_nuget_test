@@ -118,7 +118,6 @@ jobs:
       #     tag: ${{ github.run_number }}_${{ github.run_id }}
 
       - name: reportgenerator
-        if: runner.OS == 'Linux'
         run: |
           dotnet tool update -g dotnet-reportgenerator-globaltool
           reportgenerator -reports:./coverage/coverage.*.info \
@@ -128,14 +127,13 @@ jobs:
 
       - name: code coverage - upload-artifact
         uses: actions/upload-artifact@v2
-        if: runner.OS == 'Linux'
         with:
           name: coveragereport
           path: coveragereport
 
       - name: dotnet pack
         run: dotnet pack -c ${{ steps.setvars.outputs.BuildConfiguration }} --nologo --no-build --include-symbols -p:Version='${{ steps.gitversion.outputs.SemVer }}'
-        if: github.ref == 'refs/heads/main' && runner.OS == 'Linux'
+        if: github.ref == 'refs/heads/main'
 
       - name: dotnet push (api.nuget.org)
         run: |
@@ -145,7 +143,7 @@ jobs:
          else
            echo "::warning title=NUGET_API_KEY::NUGET_API_KEY is missing from secrets, skipping push to api.nuget.org."
          fi
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.event.inputs.PublishPreview == 'true'
 
       - name: dotnet push (nuget.pkg.github.com)
         run: |
@@ -155,7 +153,7 @@ jobs:
 
       - name: create release ${{ steps.gitversion.outputs.FullSemVer }}
         uses: softprops/action-gh-release@v1
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.event.inputs.PublishPreview == 'true'
         with:
           tag_name: ${{ steps.gitversion.outputs.FullSemVer }}
           name: Release ${{ steps.gitversion.outputs.FullSemVer }}
