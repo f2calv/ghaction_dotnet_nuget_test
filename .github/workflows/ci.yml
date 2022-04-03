@@ -31,5 +31,6 @@ jobs:
   ci:
     uses: f2calv/gha-workflows/.github/workflows/dotnet-nuget-publish-v1.yml@main
     with:
-      BuildConfiguration: Release
+      #BuildConfiguration: Release
+      BuildConfiguration: ${{ github.event.inputs.BuildConfiguration }}
       PublishPreview: false
