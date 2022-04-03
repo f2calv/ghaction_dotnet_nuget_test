@@ -11,11 +11,11 @@ on:
         options:
         - Release
         - Debug
-      # PublishPreview:
-      #   type: boolean
-      #   description: Publish preview branch?
-      #   required: true
-      #   default: false
+      PublishPreview:
+        type: boolean
+        description: Publish preview branch?
+        required: true
+        default: false
   push:
     branches-ignore:
       - "preview/**"
@@ -32,5 +32,6 @@ jobs:
     uses: f2calv/gha-workflows/.github/workflows/dotnet-nuget-publish-v1.yml@main
     with:
       #BuildConfiguration: Release
+      #PublishPreview: false
       BuildConfiguration: ${{ github.event.inputs.BuildConfiguration }}
-      PublishPreview: false
+      PublishPreview: ${{ github.event.inputs.PublishPreview }}
