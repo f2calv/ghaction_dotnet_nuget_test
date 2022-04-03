@@ -28,5 +28,5 @@ jobs:
   wftest:
     uses: f2calv/ghaction_workflows/.github/workflows/dotnet-nuget-publish-v1.yml@main
     with:
-      BuildConfiguration: ${{ github.event.inputs.BuildConfiguration }}
-      PublishPreview: ${{ github.event.inputs.PublishPreview }}
+      BuildConfiguration: Release
+      PublishPreview: false
