@@ -4,15 +4,18 @@ on:
   workflow_dispatch:
     inputs:
       BuildConfiguration:
-        type: string
+        type: choice
         description: Build Configuration
         required: true
         default: Release
-      PublishPreview:
-        type: boolean
-        description: Publish preview branch?
-        required: true
-        default: false
+        options:
+        - Release
+        - Debug
+      # PublishPreview:
+      #   type: boolean
+      #   description: Publish preview branch?
+      #   required: true
+      #   default: false
   push:
     branches-ignore:
       - "preview/**"
