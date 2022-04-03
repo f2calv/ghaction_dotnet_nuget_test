@@ -161,8 +161,7 @@ jobs:
 
   SonarQube:
     runs-on: windows-latest
-    #needs: [ build, ${{ needs.build.outputs.BuildConfiguration }} ]
-    needs: ${{ needs.build.outputs.BuildConfiguration }}
+    needs: build
     steps:
       # Steps below from https://docs.sonarqube.org/latest/analysis/github-integration/ + modifications!
 
