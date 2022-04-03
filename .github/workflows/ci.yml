@@ -153,12 +153,12 @@ jobs:
           gpr push ${{ github.workspace }}/src/**/*.nupkg -k ${{ secrets.GITHUB_TOKEN }}
         if: github.ref == 'refs/heads/main'
 
-      - name: create release ${{ needs.gitversion.outputs.FullSemVer }}
+      - name: create release ${{ steps.gitversion.outputs.FullSemVer }}
         uses: softprops/action-gh-release@v1
         if: github.ref == 'refs/heads/main'
         with:
-          tag_name: ${{ needs.gitversion.outputs.FullSemVer }}
-          name: Release ${{ needs.gitversion.outputs.FullSemVer }}
+          tag_name: ${{ steps.gitversion.outputs.FullSemVer }}
+          name: Release ${{ steps.gitversion.outputs.FullSemVer }}
 
   SonarQube:
     runs-on: windows-latest
