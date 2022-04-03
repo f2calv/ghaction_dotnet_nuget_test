@@ -75,6 +75,8 @@ jobs:
           $GitVersion = dotnet-gitversion ${{ github.workspace }} /nofetch | ConvertFrom-Json
           echo "SemVer=$($GitVersion.SemVer)"
           echo "::set-output name=SemVer::$($GitVersion.SemVer)"
+          echo "FullSemVer=$($GitVersion.FullSemVer)"
+          echo "::set-output name=FullSemVer::$($GitVersion.FullSemVer)"
         shell: pwsh
 
       - name: dotnet restore
