@@ -12,10 +12,10 @@ on:
         - Release
         - Debug
       PublishPreview:
-        type: boolean
+        type: string
         description: Publish preview branch?
         required: true
-        default: false
+        default: "false"
   push:
     branches-ignore:
       - "preview/**"
