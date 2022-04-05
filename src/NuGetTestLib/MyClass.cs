@@ -2,5 +2,5 @@
 
 public class MyClass
 {
-    public int ProduceValue() => 1;
+    public int ProduceValue() => 2;
 }

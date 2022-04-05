@@ -7,6 +7,6 @@ public class MyTests
     public void Test()
     {
         var obj = new MyClass();
-        Assert.Equal(1, obj.ProduceValue());
+        Assert.Equal(2, obj.ProduceValue());
     }
 }
