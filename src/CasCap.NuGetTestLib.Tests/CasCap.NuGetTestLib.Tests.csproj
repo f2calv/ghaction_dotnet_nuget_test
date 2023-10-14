@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NuGetTestLib\NuGetTestLib.csproj" />
+    <ProjectReference Include="..\CasCap.NuGetTestLib\CasCap.NuGetTestLib.csproj" />
   </ItemGroup>
 
 </Project>
